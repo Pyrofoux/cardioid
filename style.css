@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Roboto+Mono&display=swap');
+
+body
+{
+	background-color:black;
+	color:white;
+	text-align:center;
+}
+
+
+#cvs
+{
+	margin-top:5%;
+}
+
+
+	.number_container
+	{
+		font-family: 'Courier Prime', monospace;
+		font-size:3em;
+		-webkit-user-select: none; /* Safari */
+		-moz-user-select: none; /* Firefox */
+		-ms-user-select: none; /* IE10+/Edge */
+		user-select: none; /* Standard */
+
+	}
+
+	.number
+	{
+		font-family: 'Courier Prime', monospace;
+		font-size:1em;
+		-webkit-user-select: none; /* Safari */
+		-moz-user-select: none; /* Firefox */
+		-ms-user-select: none; /* IE10+/Edge */
+		user-select: none; /* Standard */
+		background-color:black;
+		color:white;
+		border:none;
+		text-align:center;
+
+	}
+
+	.arrow
+	{
+		color:lightgrey;
+	}
+
+	.arrow:hover
+	{
+		color:orange;
+		cursor:pointer;
+	}

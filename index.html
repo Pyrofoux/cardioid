@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cardioid Explorer</title>
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+
+    <span class="number_container">
+      <span class="arrow" onclick="MinusResolution();"> < </span>
+      <input type="text" size="3" class="number" onchange="resolution=this.value;update();" id="number_resolution" value="100" />
+      <span class="arrow"  onclick="PlusResolution();"> > </span>
+    </span>
+    <br/>
+    <br/>
+    <span class="number_container">
+      <span class="arrow" onclick="MinusCoefficient();"> < </span>
+      <input type="text" size="3" class="number" onchange="coefficient=this.value;update();" id="number_coefficient" value="2" />
+      <span class="arrow"  onclick="PlusCoefficient();"> > </span>
+    </span>
+
+    <br/>
+	<canvas id="cvs"></canvas>
+
+
+	<script type="text/javascript" src="js/helper.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+
+
+
+  </body>
+</html>
