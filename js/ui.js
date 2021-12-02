@@ -11,7 +11,6 @@ function canvas_autosize()
   {
     screenSize = min_screenSize;
   }
-  alert(scaled);
   circleRadius = screenSize/2;
 }
 
