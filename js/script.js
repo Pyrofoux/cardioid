@@ -1,9 +1,12 @@
 /// PARAMETERS
 
-var circleRadius = 180;
-var screenSize  = 2*circleRadius;
-var resolution  = 100;
-var coefficient = 2;
+
+
+var min_screenSize = 300;
+var screenSize;
+var circleRadius;
+var resolution  = get("number_resolution").value || 100;
+var coefficient = get("number_coefficient").value || 2;
 
 var lineColor = "white";
 
@@ -18,12 +21,18 @@ var cvs = get("cvs"), ctx = cvs.getContext('2d');
 function init()
 {
 
+  canvas_autosize();
   cvs.width = cvs.height = screenSize;
 
   //pixel fix?
   //ctx.translate(0.5, 0.5);
   ctx.translate (circleRadius, circleRadius);
   ctx.strokeStyle = lineColor;
+
+  drawoid();
+  update();
+  refreshList();
+
 }
 
 
@@ -51,41 +60,9 @@ function drawoid()
   for(var i = 0; i < resolution; i++)
   {
     connect(i, (i*coefficient)%resolution);
+    //connect(i, (i/coefficient)%resolution);
   }
 
 }
 
-function PlusResolution()
-{
-  resolution++;
-  update();
-}
-
-function PlusCoefficient()
-{
-  coefficient++;
-  update();
-}
-
-function MinusResolution()
-{
-  resolution = Math.max(resolution-1, 0);
-  update();
-}
-
-function MinusCoefficient()
-{
-  coefficient = Math.max(coefficient-1, 0);
-  update();
-}
-
-function update()
-{
-  get("number_coefficient").value = coefficient;
-  get("number_resolution").value = resolution;
-  drawoid();
-}
-
-
 init();
-drawoid();

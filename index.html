@@ -8,13 +8,14 @@
   </head>
   <body>
 
+    <h2 class="number_label">RESOLUTION</h2>
     <span class="number_container">
       <span class="arrow" onclick="MinusResolution();"> < </span>
       <input type="text" size="3" class="number" onchange="resolution=this.value;update();" id="number_resolution" value="100" />
       <span class="arrow"  onclick="PlusResolution();"> > </span>
     </span>
-    <br/>
-    <br/>
+
+    <h2 class="number_label">COEFFICIENT</h2>
     <span class="number_container">
       <span class="arrow" onclick="MinusCoefficient();"> < </span>
       <input type="text" size="3" class="number" onchange="coefficient=this.value;update();" id="number_coefficient" value="2" />
@@ -22,10 +23,25 @@
     </span>
 
     <br/>
+
+    <div id="left-panel" class="panel">
+
+
+    </div>
 	<canvas id="cvs"></canvas>
 
+  <div id="right-panel" class="panel">
 
-	<script type="text/javascript" src="js/helper.js"></script>
+    <a onclick="save();" id="save_button" class="interact_link">[SAVE]</a>
+    <ul id="save_list">
+    </ul>
+
+  </div>
+
+  <script type="text/javascript" src="js/helper.js"></script>
+	<script type="text/javascript" src="js/lockr.js"></script>
+  <script type="text/javascript" src="js/savelist.js"></script>
+  <script type="text/javascript" src="js/ui.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 
 

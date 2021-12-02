@@ -9,3 +9,8 @@ function get(id)
 {
 	return document.getElementById(id);
 }
+
+function dc(elem)
+{
+  return document.createElement(elem);
+}
