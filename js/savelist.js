@@ -69,8 +69,7 @@ function refreshList()
 		}
 
 		 var cross = dc("span");
-		 cross.innerHTML = " ❌";
-		 cross.innerHTML = " [x]";
+		 cross.innerHTML = " [X]";
 		 // cross.dataId = id;
 		 cross.className = "list-delete";
 		 cross.onclick = function()

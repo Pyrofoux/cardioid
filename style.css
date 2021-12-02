@@ -8,6 +8,13 @@ body
 	color:white;
 	text-align:center;
 	font-family:'Courier_Prime';
+
+
+	-webkit-user-select: none; /* Safari */
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* IE10+/Edge */
+user-select: none; /* Standard */
+
 }
 
 
@@ -47,6 +54,11 @@ body
 		border:none;
 		text-align:center;
 
+	}
+
+	.number:hover
+	{
+		color:orange;
 	}
 
 	.arrow
@@ -92,6 +104,12 @@ body
 		text-align:left;
 	}
 
+	#left-panel
+	{
+		text-align:left;
+		padding-right:15px;
+	}
+
 
 	.interact_link
 	{
@@ -106,6 +124,7 @@ body
 	.list-delete
 	{
 		cursor:pointer;
+		font-size:0.8em;
 	}
 
 	.list-delete:hover
@@ -121,5 +140,10 @@ ul
 
 #save_button
 {
-	margin-left:50%;
+	margin-right:50%;
+}
+
+.export
+{
+	font-size:0.5em;
 }

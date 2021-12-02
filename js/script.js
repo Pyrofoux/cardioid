@@ -3,18 +3,18 @@
 
 
 var min_screenSize = 300;
-var screenSize;
-var circleRadius;
-var resolution  = get("number_resolution").value || 100;
-var coefficient = get("number_coefficient").value || 2;
-
 var lineColor = "white";
-
 var pi = Math.PI, tpi = 2*pi;
+
 
 /// GLOBALS
 
 var cvs = get("cvs"), ctx = cvs.getContext('2d');
+var export_lines = [];
+var screenSize;
+var circleRadius;
+var resolution  = get("number_resolution").value || 100;
+var coefficient = get("number_coefficient").value || 2;
 
 ///
 
@@ -26,10 +26,10 @@ function init()
 
   //pixel fix?
   //ctx.translate(0.5, 0.5);
-  ctx.translate (circleRadius, circleRadius);
+  ctx.translate (screenSize/2, screenSize/2);
   ctx.strokeStyle = lineColor;
 
-  drawoid();
+  drawoid(cvs,ctx);
   update();
   refreshList();
 
@@ -38,6 +38,7 @@ function init()
 
 function point2coord(n)
 {
+  var circleRadius = screenSize/2;
   var x = circleRadius * Math.cos(tpi * n / resolution);
   var y = circleRadius * Math.sin(tpi * n / resolution);
   return {x:x,y:y};
@@ -52,15 +53,26 @@ function connect(a,b)
     ctx.stroke();
 }
 
-function drawoid()
+function drawoid(_cvs,_ctx, _screenSize)
 {
 
-  ctx.clearRect(-circleRadius,-circleRadius, 2*circleRadius, 2*circleRadius);
+
+  _cvs = _cvs || cvs;
+  _ctx = _ctx || ctx;
+  _screenSize = _screenSize || screenSize;
+
+  ctx.fillStyle = "black";
+  ctx.fillRect(-screenSize/2,-screenSize/2, screenSize, screenSize);
+
+  export_lines = [["Start","End"]];
 
   for(var i = 0; i < resolution; i++)
   {
-    connect(i, (i*coefficient)%resolution);
-    //connect(i, (i/coefficient)%resolution);
+    var a = i;
+    var b = (i*coefficient)%resolution;
+    connect(a, b);
+
+    export_lines.push([a,b]);
   }
 
 }

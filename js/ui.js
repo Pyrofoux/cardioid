@@ -3,6 +3,9 @@ function canvas_autosize()
 
   var max_window = Math.min(window.innerWidth,window.innerHeight);
   var scaled = Math.round(max_window*0.55);
+
+  scaled += 1-scaled%2;
+
   if(scaled > min_screenSize)
   {
     screenSize = scaled;
@@ -11,7 +14,6 @@ function canvas_autosize()
   {
     screenSize = min_screenSize;
   }
-  circleRadius = screenSize/2;
 }
 
 
